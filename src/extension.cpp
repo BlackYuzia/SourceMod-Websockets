@@ -82,6 +82,8 @@ void log_err(void *msg) {
 }
 
 void WebSocketExtension::LogMessage(const char *msg, ...) {
+    return;
+    
     char *buffer = reinterpret_cast<char *>(malloc(3072));
     va_list vp;
     va_start(vp, msg);
@@ -92,6 +94,8 @@ void WebSocketExtension::LogMessage(const char *msg, ...) {
 }
 
 void WebSocketExtension::LogError(const char *msg, ...) {
+    return;
+    
     char *buffer = reinterpret_cast<char *>(malloc(3072));
     va_list vp;
     va_start(vp, msg);
