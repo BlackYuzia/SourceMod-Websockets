@@ -12,8 +12,8 @@ public:
     boost::asio::io_context& get_context();
     boost::asio::ssl::context& get_ssl_context();
 
-    websocket_eventloop() : work(context), ssl_ctx(boost::asio::ssl::context::tlsv12_client) {
-        this->ssl_ctx.set_verify_mode(boost::asio::ssl::verify_peer);
+    websocket_eventloop() : work(context), ssl_ctx(boost::asio::ssl::context::tlsv13_client) {
+        this->ssl_ctx.set_verify_mode(boost::asio::ssl::verify_peer | boost::asio::ssl::verify_fail_if_no_peer_cert);
         this->ssl_ctx.set_default_verify_paths();
     }
 private:

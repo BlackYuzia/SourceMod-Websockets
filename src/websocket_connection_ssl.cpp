@@ -33,7 +33,7 @@ void websocket_connection_ssl::on_connect(beast::error_code ec, tcp::resolver::r
         return;
     }
 
-    auto host = this->address + ":" + to_string(this->port);
+    auto host = this->address; //+ ":" + to_string(this->port);
     beast::get_lowest_layer(*this->ws).expires_after(chrono::seconds(30));
     if (!SSL_set_tlsext_host_name(this->ws->next_layer().native_handle(), host.c_str())) {
         ec = beast::error_code(static_cast<int>(::ERR_get_error()), boost::asio::error::get_ssl_category());
