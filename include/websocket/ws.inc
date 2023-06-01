@@ -12,7 +12,7 @@ methodmap WebSocket < Handle
 	public native void SetHeader(const char[] header, const char[] value);
 	public native void Close();
 	public native void Write(WS_JSON json);
-	public native void SetReadCallback(int type, ReadCallback callback, any data = 0);
+	public native void SetReadCallback(ReadCallback callback, any data = 0);
 	public native void SetDisconnectCallback(DisconnectCallback callback, any data = 0);
 	public native void SetConnectCallback(ConnectCallback callback, any data = 0);
 }

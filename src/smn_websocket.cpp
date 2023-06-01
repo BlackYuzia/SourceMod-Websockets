@@ -113,14 +113,13 @@ static cell_t native_SetReadCallback(IPluginContext *p_context, const cell_t *pa
         return 0;
     }
 
-    uint32_t callback_type = params[2];
-    auto callback = p_context->GetFunctionById((funcid_t)params[3]);
+    auto callback = p_context->GetFunctionById((funcid_t)params[2]);
     if (!callback) {
         p_context->ReportError("Invalid handler callback provided");
         return 0;
     }
 
-    cell_t data = params[4];
+    cell_t data = params[3];
 
     connection->set_read_callback([callback, hndl_websocket, p_context, data](auto buffer, auto size) {
         string message(reinterpret_cast<const char*>(buffer), size);
