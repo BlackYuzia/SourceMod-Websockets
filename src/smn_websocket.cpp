@@ -96,16 +96,6 @@ static cell_t native_Connect(IPluginContext *p_context, const cell_t *params) {
     return 0;
 }
 
-static cell_t native_Close(IPluginContext *p_context, const cell_t *params) {
-    websocket_connection_base *connection;
-    if (websocket_read_handle(params[1], p_context, &connection) != HandleError_None) {
-        return 0;
-    }
-
-    connection->close();
-    return 0;
-}
-
 static cell_t native_SetReadCallback(IPluginContext *p_context, const cell_t *params) {
     websocket_connection_base *connection;
     Handle_t hndl_websocket = params[1];
@@ -276,7 +266,6 @@ const sp_nativeinfo_t sm_websocket_natives[] = {
     {"WebSocket.CreateSSL", native_WebSocketSSL},
     {"WebSocket.Connect", native_Connect},
     {"WebSocket.SetHeader", native_SetHeader},
-    {"WebSocket.Close", native_Close},
     {"WebSocket.SetReadCallback", native_SetReadCallback},
     {"WebSocket.SetDisconnectCallback", native_SetDisconnectCallback},
     {"WebSocket.SetConnectCallback", native_SetConnectCallback},
