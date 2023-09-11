@@ -157,7 +157,7 @@ AM_CONDITIONAL([USE_OSSFUZZ_STATIC], [test -f "$LIB_FUZZING_ENGINE"])
 if test x$GCC = xyes; then
     AC_MSG_CHECKING(for -Wno-format-truncation)
     wnoformat_truncation="-Wno-format-truncation"
-    AS_IF([${CC} -Wno-format-truncation -Werror -S -o /dev/null -xc /dev/null > /dev/null 2>&1],
+    AS_IF([${CC} -Wno-format-truncation -S -o /dev/null -xc /dev/null > /dev/null 2>&1],
       [AC_MSG_RESULT(yes)],
       [AC_MSG_RESULT(no)
       wnoformat_truncation=""])

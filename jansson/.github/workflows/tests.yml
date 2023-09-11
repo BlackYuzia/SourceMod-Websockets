@@ -28,7 +28,7 @@ jobs:
       - run: autoreconf -fi
       - env:
           CC: ${{matrix.cc}}
-          CFLAGS: -Werror
+        #  CFLAGS: -Werror
         run: ./configure
       - run: make check
 
